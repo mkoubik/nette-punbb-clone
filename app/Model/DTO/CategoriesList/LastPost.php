@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\DTO;
+namespace App\Model\DTO\CategoriesList;
 
 class LastPost extends \Nette\Object
 {

@@ -1,2 +1,3 @@
 services:
 	- App\Model\CategoriesRepository
+	- App\Model\Mapping\CategoriesMapper
