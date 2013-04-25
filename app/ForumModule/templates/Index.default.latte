@@ -23,12 +23,7 @@
 					<td class="span1"><p>{$forum->topicsCount}</p></td>
 					<td class="span1"><p>{$forum->postsCount}</p></td>
 					<td class="span3">
-						{if $forum->lastPost}
-							<p><a href="Forum:post $forum->lastPost->id">{$forum->lastPost->posted|date:'Y-m-d H:i:s'}</a></p>
-							<p>by {$forum->lastPost->author}</p>
-						{else}
-							<p>Never</p>
-						{/if}
+						{include @lastPost.latte lastPost => $forum->lastPost}
 					</td>
 				</tr>
 			{/foreach}
