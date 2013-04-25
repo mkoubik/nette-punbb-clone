@@ -17,7 +17,7 @@
 				<tr>
 					<td class="span1"><span class="icon icon-file"></span></td>
 					<td class="span6">
-						<p><a n:href="Forum: $forum->id"><strong>{$forum->name}</strong></a></p>
+						<p><a n:href=":Forum:Forum: id => $forum->id"><strong>{$forum->name}</strong></a></p>
 						<p n:if="$forum->description">{$forum->description}</p>
 					</td>
 					<td class="span1"><p>{$forum->topicsCount}</p></td>

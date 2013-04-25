@@ -1,0 +1,32 @@
+{#content}
+<div class="row-fluid">
+	<div class="span12">
+		<table class="table table-condensed">
+			<caption>Topics: {= count($topics)}</caption>
+			<thead>
+				<tr>
+					<th colspan="2"><p>Topics</p></th>
+					<th><p>Replies</p></th>
+					<th><p>Views</p></th>
+					<th><p>Last post</p></th>
+				</tr>
+			</thead>
+			<tbody>
+			{foreach $topics as $topic}
+				<tr>
+					<td class="span1"><span class="icon icon-file"></span></td>
+					<td class="span6">
+						<p><a href=":Forum:Topic: id => $topic->id">{$topic->name}</a></p>
+						<p>by {$topic->author}</p>
+					</td>
+					<td class="span1"><p>{$topic->repliesCount}</p></td>
+					<td class="span1"><p>{$topic->viewsCount}</p></td>
+					<td class="span3">
+						{include @lastPost.latte lastPost => $topic->lastPost}
+					</td>
+				</tr>
+			{/foreach}
+			</tbody>
+		</table>
+	</div>
+</div>

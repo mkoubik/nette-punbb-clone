@@ -2,6 +2,8 @@
 
 namespace App\Model\DTO\CategoriesList;
 
+use App\Model\DTO\LastPost;
+
 class Forum extends \Nette\Object
 {
 	private $id;
