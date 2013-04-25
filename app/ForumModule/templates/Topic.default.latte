@@ -1,6 +1,7 @@
 {#content}
 <div class="row-fluid">
 	<div class="span12">
+		{include @paginator.latte paginator => $page->paginator}
 		<table class="table table-condensed">
 			<thead>
 				<tr>
@@ -33,5 +34,6 @@
 				</tr>
 			</tfoot>
 		</table>
+		{include @paginator.latte paginator => $page->paginator}
 	</div>
 </div>

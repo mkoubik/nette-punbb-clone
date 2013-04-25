@@ -2,6 +2,8 @@
 
 namespace App\Model\DTO\PostsList;
 
+use Nette\Utils\Paginator;
+
 class PostsPage extends \Nette\Object
 {
 	private $number;
@@ -14,7 +16,9 @@ class PostsPage extends \Nette\Object
 
 	private $posts;
 
-	public function __construct($number, $from, $to, $total, array $posts)
+	private $paginator;
+
+	public function __construct($number, $from, $to, $total, array $posts, Paginator $paginator)
 	{
 		$this->number = $number;
 		$this->from = $from;
@@ -23,6 +27,7 @@ class PostsPage extends \Nette\Object
 		$this->posts = array_filter($posts, function ($post) {
 			return $post instanceof Post;
 		});
+		$this->paginator = $paginator;
 	}
 
 	public function getNumber()
@@ -48,5 +53,10 @@ class PostsPage extends \Nette\Object
 	public function getPosts()
 	{
 		return $this->posts;
+	}
+
+	public function getPaginator()
+	{
+		return $this->paginator;
 	}
 }

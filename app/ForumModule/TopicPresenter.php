@@ -25,6 +25,10 @@ final class TopicPresenter extends Presenter
 
 	public function renderDefault($page = 1)
 	{
-		$this->template->page = $this->posts->getPageByTopicId($this->id, $page);
+		$postsPage = $this->posts->getPageByTopicId($this->id, $page);
+		if ($postsPage->paginator->page !== $page) {
+			throw new \Nette\Application\BadRequestException();
+		}
+		$this->template->page = $postsPage;
 	}
 }

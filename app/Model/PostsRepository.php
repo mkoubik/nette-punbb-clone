@@ -12,14 +12,10 @@ class PostsRepository
 
 	private $mapper;
 
-	private $paginator;
-
 	public function __construct(\Nette\Database\Connection $connection, Mapping\IPostsMapper $mapper)
 	{
 		$this->connection = $connection;
 		$this->mapper = $mapper;
-		$this->paginator = new Paginator();
-		$this->paginator->itemsPerPage = self::POSTS_PER_PAGE;
 	}
 
 	/**
@@ -34,15 +30,17 @@ class PostsRepository
 		if ($total == 0) {
 			// TODO exception
 		}
-		$this->paginator->itemCount = $total;
-		$this->paginator->page = $page;
+		$paginator = new Paginator();
+		$paginator->itemsPerPage = self::POSTS_PER_PAGE;
+		$paginator->itemCount = $total;
+		$paginator->page = $page;
 		$postsData = $this->prepareByTopicId($id)
-			->limit($this->paginator->itemsPerPage, $this->paginator->offset)
+			->limit($paginator->itemsPerPage, $paginator->offset)
 			->fetchAll();
-		$from = $this->paginator->offset + 1;
+		$from = $paginator->offset + 1;
 		$posts = $mapper->mapPostsList($postsData, $from);
-		$to = $this->paginator->offset + count($posts);
-		return new DTO\PostsList\PostsPage($page, $from, $to, $total, $posts);
+		$to = $paginator->offset + count($posts);
+		return new DTO\PostsList\PostsPage($page, $from, $to, $total, $posts, $paginator);
 	}
 
 	private function prepareByTopicId($id)
