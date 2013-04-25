@@ -25,6 +25,9 @@ nette:
 	container:
 		accessors: FALSE
 
+	database:
+		reflection: App\Model\DatabaseReflection
+
 
 services:
 	- App\RouterFactory

@@ -1,5 +1,8 @@
 services:
 	- App\Model\CategoriesRepository
 	- App\Model\TopicsRepository
+	- App\Model\PostsRepository
+
 	- App\Model\Mapping\CategoriesMapper
 	- App\Model\Mapping\TopicsMapper
+	- App\Model\Mapping\PostsMapper

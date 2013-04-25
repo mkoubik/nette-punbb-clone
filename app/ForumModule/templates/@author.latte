@@ -1,0 +1,11 @@
+<p><a href=""><strong>{$author->name}</strong></a></p>
+<p><strong>{$author->title}</strong></p>
+<p>
+{if $author->online}
+	<span class="icon icon-eye-open"></span> <strong>Online</strong>
+{else}
+	<span class="icon icon-eye-close"></span> Offline
+{/if}
+</p>
+<p>Registered: {$author->registered|date:'Y-m-d H:i:s'}</p>
+<p>Posts: {$author->postsCount}</p>

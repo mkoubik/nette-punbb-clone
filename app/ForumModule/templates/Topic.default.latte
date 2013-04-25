@@ -1,0 +1,34 @@
+{#content}
+<div class="row-fluid">
+	<div class="span12">
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<td colspan="2">Posts {$page->from} - {$page->to} of {$page->total}</td>
+				</tr>
+			</thead>
+			<tbody>
+			{foreach $page->posts as $post}
+				<tr>
+					<td class="span3">
+						{include @author.latte author => $post->author}
+					</td>
+					<td class="span9">
+						<p class="alert alert-info">
+							<a n:href=":Forum:Post: id => $post->id">{$post->posted|date:'Y-m-d H:i:s'}</a>
+							<span class="pull-right">{$post->number}</span>
+						</p>
+						<p>{$post->message}</p>
+					</td>
+				</tr>
+			</div>
+			{/foreach}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">Posts {$page->from} - {$page->to} of {$page->total}</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
