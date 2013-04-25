@@ -1,18 +1,38 @@
-{foreach $categories as $category}
-	<h1>{$category->name}</h1>
-	{foreach $category->forums as $forum}
-		<h2>{$forum->name} (id: {$forum->id})</h2>
-		<p>Topics: {$forum->topicsCount}</p>
-		<p>Posts: {$forum->postsCount}</p>
-		<p>
-			Last post:
-			{if $forum->lastPost}
-				{$forum->lastPost->posted|date} (id: {$forum->lastPost->id})
-				by {$forum->lastPost->author}
-			{else}
-				Never
-			{/if}
-		</p>
-		<p>{$forum->description}</p>
+{#content}
+<div class="row-fluid">
+	<div class="span12">
+	{foreach $categories as $category}
+		<table class="table table-condensed">
+			<caption>{$category->name}</caption>
+			<thead>
+				<tr>
+					<th colspan="2"><p>Forums</p></th>
+					<th><p>Topics</p></th>
+					<th><p>Posts</p></th>
+					<th><p>Last post</p></th>
+				</tr>
+			</thead>
+			<tbody>
+			{foreach $category->forums as $forum}
+				<tr>
+					<td class="span1"><span class="icon icon-file"></span></td>
+					<td class="span6">
+						<p><a n:href="Forum: $forum->id"><strong>{$forum->name}</strong></a></p>
+						<p n:if="$forum->description">{$forum->description}</p>
+					</td>
+					<td class="span1"><p>{$forum->topicsCount}</p></td>
+					<td class="span1"><p>{$forum->postsCount}</p></td>
+					<td class="span3">
+						{if $forum->lastPost}
+							<p><a href="Forum:post $forum->lastPost->id">{$forum->lastPost->posted|date:'Y-m-d H:i:s'}</a></p>
+							<p>by {$forum->lastPost->author}</p>
+						{else}
+							<p>Never</p>
+						{/if}
+					</td>
+			{/foreach}
+			</tbody>
+		</table>
 	{/foreach}
-{/foreach}
+	</div>
+</div>
