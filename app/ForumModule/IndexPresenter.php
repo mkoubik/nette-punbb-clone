@@ -3,14 +3,17 @@
 namespace App\ForumModule;
 
 use Nette\Application\UI\Presenter;
+use App\Model\CategoriesRepository;
 
 final class IndexPresenter extends Presenter
 {
-	/**
-	 * @inject
-	 * @var \App\Model\CategoriesRepository
-	 */
-	public $categories;
+	/** @var \App\Model\CategoriesRepository */
+	private $categories;
+
+	public function injectRepository(CategoriesRepository $categories)
+	{
+		$this->categories = $categories;
+	}
 
 	public function renderDefault()
 	{
