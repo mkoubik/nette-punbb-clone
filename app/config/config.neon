@@ -21,7 +21,6 @@ nette:
 
 
 services:
-	- Model\UserManager
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
 
