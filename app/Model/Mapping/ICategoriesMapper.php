@@ -6,6 +6,7 @@ interface ICategoriesMapper
 {
 	const TABLE_CATEGORIES = 'pun_categories';
 	const ROW_CATEGORIES_NAME = 'cat_name';
+	const ROW_CATEGORIES_POSITION = 'disp_position';
 
 	const TABLE_FORUMS = 'pun_forums';
 	const ROW_FORUMS_ID = 'id';
@@ -17,6 +18,7 @@ interface ICategoriesMapper
 	const ROW_FORUMS_LAST_POST_ID = 'last_post_id';
 	const ROW_FORUMS_LAST_POST_POSTED = 'last_post';
 	const ROW_FORUMS_LAST_POST_AUTHOR = 'last_poster';
+	const ROW_FORUMS_POSITION = 'disp_position';
 
 	/**
 	 * @param  mixed $data

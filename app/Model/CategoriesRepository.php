@@ -24,9 +24,10 @@ class CategoriesRepository
 	 */
 	public function getAll()
 	{
-		$categories = $this->connection->table('pun_categories')
-			->order('disp_position')
+		$mapper = $this->mapper;
+		$categories = $this->connection->table($mapper::TABLE_CATEGORIES)
+			->order($mapper::ROW_CATEGORIES_POSITION)
 			->fetchAll();
-		return $this->mapper->mapCategoriesList($categories);
+		return $mapper->mapCategoriesList($categories);
 	}
 }

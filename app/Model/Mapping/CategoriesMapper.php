@@ -10,7 +10,8 @@ class CategoriesMapper implements ICategoriesMapper
 	public function mapCategoriesList($categories)
 	{
 		return array_map(function($row) {
-			$forums = $row->related(self::TABLE_FORUMS, self::ROW_FORUMS_CATEGORY_ID);
+			$forums = $row->related(self::TABLE_FORUMS, self::ROW_FORUMS_CATEGORY_ID)
+				->order(self::ROW_FORUMS_POSITION);
 			$forums = array_map(function ($row) {
 				$lastPost = NULL;
 				if ($row[self::ROW_FORUMS_LAST_POST_ID] !== NULL) {
