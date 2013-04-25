@@ -8,7 +8,7 @@ class CategoriesRepository
 
 	private $mapper;
 
-	public function __construct(\Nette\Database\Connection $connection, Mapping\CategoriesMapper $mapper)
+	public function __construct(\Nette\Database\Connection $connection, Mapping\ICategoriesMapper $mapper)
 	{
 		$this->connection = $connection;
 		$this->mapper = $mapper;
