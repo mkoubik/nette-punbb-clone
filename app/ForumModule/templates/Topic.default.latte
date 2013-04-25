@@ -16,6 +16,9 @@
 					<td class="span9">
 						<p class="alert alert-info">
 							<a n:href=":Forum:Post: id => $post->id">{$post->posted|date:'Y-m-d H:i:s'}</a>
+							{if $post->edited}
+							(edited by {$post->editedBy} as {$post->edited|date:'Y-m-d H:i:s'})
+							{/if}
 							<span class="pull-right">{$post->number}</span>
 						</p>
 						<p>{$post->message}</p>

@@ -23,12 +23,21 @@ class PostsMapper implements IPostsMapper
 				$author[self::ROW_USERS_POSTS_COUNT]
 			);
 
+			$edited = NULL;
+			$editedBy = NULL;
+			if ($row[self::ROW_POSTS_EDITED]) {
+				$edited = new \DateTime('@' . $row[self::ROW_POSTS_EDITED]);
+				$editedBy = $row[self::ROW_POSTS_EDITED_BY];
+			}
+
 			$post = new ListDTO\Post(
 				$row[self::ROW_POSTS_ID],
 				$number,
 				$row[self::ROW_POSTS_MESSAGE],
 				new \DateTime('@' . $row[self::ROW_POSTS_POSTED]),
-				$author
+				$author,
+				$edited,
+				$editedBy
 			);
 			$number++;
 			return $post;

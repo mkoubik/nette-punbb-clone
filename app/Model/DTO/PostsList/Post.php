@@ -2,7 +2,6 @@
 
 namespace App\Model\DTO\PostsList;
 
-// TODO: edited
 class Post extends \Nette\Object
 {
 	private $id;
@@ -15,13 +14,19 @@ class Post extends \Nette\Object
 
 	private $author;
 
-	public function __construct($id, $number, $message, \DateTime $posted, Author $author)
+	private $edited = NULL;
+
+	private $editedBy = NULL;
+
+	public function __construct($id, $number, $message, \DateTime $posted, Author $author, \DateTime $edited = NULL, $editedBy = NULL)
 	{
 		$this->id = $id;
 		$this->number = $number;
 		$this->message = $message;
 		$this->posted = $posted;
 		$this->author = $author;
+		$this->edited = $edited;
+		$this->editedBy = $editedBy;
 	}
 
 	public function getId()
@@ -47,5 +52,15 @@ class Post extends \Nette\Object
 	public function getAuthor()
 	{
 		return $this->author;
+	}
+
+	public function getEdited()
+	{
+		return $this->edited;
+	}
+
+	public function getEditedBy()
+	{
+		return $this->editedBy;
 	}
 }

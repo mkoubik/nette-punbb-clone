@@ -13,6 +13,8 @@ interface IPostsMapper
 	const ROW_POSTS_AUTHOR_NAME = 'poster';
 	const ROW_POSTS_MESSAGE = 'message';
 	const ROW_POSTS_POSTED = 'posted';
+	const ROW_POSTS_EDITED = 'edited';
+	const ROW_POSTS_EDITED_BY = 'edited_by';
 
 	const TABLE_USERS = 'pun_users';
 	const ROW_USERS_REGISTERD = 'registered';
