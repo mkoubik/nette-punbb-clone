@@ -22,6 +22,9 @@ nette:
 	session:
 		expiration: 14 days
 
+	container:
+		accessors: FALSE
+
 
 services:
 	- App\RouterFactory
