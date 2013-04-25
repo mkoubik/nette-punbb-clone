@@ -6,6 +6,7 @@ use App\Model\DTO\CategoriesList as ListDTO;
 
 class CategoriesMapper implements ICategoriesMapper
 {
+	/** @inheritDoc */
 	public function mapCategoriesList($categories)
 	{
 		return array_map(function($row) {

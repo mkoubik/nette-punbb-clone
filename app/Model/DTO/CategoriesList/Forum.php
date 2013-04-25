@@ -26,31 +26,37 @@ class Forum extends \Nette\Object
 		$this->lastPost = $lastPost;
 	}
 
+	/** @return int */
 	public function getId()
 	{
 		return $this->id;
 	}
 
+	/** @return string */
 	public function getName()
 	{
 		return $this->name;
 	}
 
+	/** @return string */
 	public function getDescription()
 	{
 		return $this->description;
 	}
 
+	/** @return int */
 	public function getTopicsCount()
 	{
 		return $this->topicsCount;
 	}
 
+	/** @return int */
 	public function getPostsCount()
 	{
 		return $this->postsCount;
 	}
 
+	/** @return LastPost|NULL */
 	public function getLastPost()
 	{
 		return $this->lastPost;

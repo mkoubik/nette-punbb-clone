@@ -18,5 +18,9 @@ interface ICategoriesMapper
 	const ROW_FORUMS_LAST_POST_POSTED = 'last_post';
 	const ROW_FORUMS_LAST_POST_AUTHOR = 'last_poster';
 
+	/**
+	 * @param  mixed $data
+	 * @return \App\Model\DTO\CategoriesList\Category[]
+	 */
 	public function mapCategoriesList($data);
 }

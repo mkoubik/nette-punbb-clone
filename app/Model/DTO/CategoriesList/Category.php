@@ -18,11 +18,13 @@ class Category extends \Nette\Object
 		});
 	}
 
+	/** @return string */
 	public function getName()
 	{
 		return $this->name;
 	}
 
+	/** @return Forum[] */
 	public function getForums()
 	{
 		return $this->forums;

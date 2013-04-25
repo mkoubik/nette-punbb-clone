@@ -17,16 +17,19 @@ class LastPost extends \Nette\Object
 		$this->author = $author;
 	}
 
+	/** @return int */
 	public function getId()
 	{
 		return $this->id;
 	}
 
+	/** @return \DateTime */
 	public function getPosted()
 	{
 		return $this->posted;
 	}
 
+	/** @return string */
 	public function getAuthor()
 	{
 		return $this->author;
