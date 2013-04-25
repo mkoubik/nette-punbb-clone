@@ -10,6 +10,11 @@ $configurator = new Nette\Config\Configurator;
 //$configurator->setDebugMode(TRUE);
 $configurator->enableDebugger(__DIR__ . '/../log');
 
+function bardump($var, $title = NULL)
+{
+	\Nette\Diagnostics\Debugger::barDump($var, $title);
+}
+
 // Specify folder for cache
 $configurator->setTempDirectory(__DIR__ . '/../temp');
 
