@@ -1,5 +1,5 @@
 {if $lastPost}
-	<p><a href="Forum:post $lastPost->id">{$lastPost->posted|date:'Y-m-d H:i:s'}</a></p>
+	<p><a n:href=":Forum:Forum:post id => $lastPost->id">{$lastPost->posted|date:'Y-m-d H:i:s'}</a></p>
 	<p>by {$lastPost->author}</p>
 {else}
 	<p>Never</p>
