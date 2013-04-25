@@ -1,6 +1,7 @@
 log/*
 temp/*
 libs/*
+tests/tmp/*
 
 .DS_Store
 !.gitignore
