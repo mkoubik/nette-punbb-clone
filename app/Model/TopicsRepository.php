@@ -32,4 +32,22 @@ class TopicsRepository
 			->fetchAll();
 		return $mapper->mapTopicsList($topics);
 	}
+
+	/**
+	 * @param  int $id
+	 * @return array [name => 'name', 'forumId' => 123]
+	 * @throws \App\Model\Exceptions\NotFoundException If forum does not exist
+	 */
+	public function getNameAndForumIdById($id)
+	{
+		$mapper = $this->mapper;
+		$row = $this->connection->table($mapper::TABLE_TOPICS)
+			->where($mapper::ROW_TOPICS_ID, $id)
+			->select($mapper::ROW_TOPICS_NAME . ', ' . $mapper::ROW_TOPICS_FORUM_ID)
+			->fetch();
+		if ($row === FALSE) {
+			throw new \App\Model\Exceptions\NotFoundException();
+		}
+		return $mapper->mapNameAndForumId($row);
+	}
 }

@@ -6,6 +6,7 @@
 #
 includes:
 	- model.neon
+	- controls.neon
 
 parameters:
 

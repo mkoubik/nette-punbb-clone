@@ -1,8 +1,12 @@
 services:
 	- App\Model\CategoriesRepository
+	- App\Model\ForumsRepository
 	- App\Model\TopicsRepository
 	- App\Model\PostsRepository
+	- App\Model\ConfigRepository
 
 	- App\Model\Mapping\CategoriesMapper
 	- App\Model\Mapping\TopicsMapper
 	- App\Model\Mapping\PostsMapper
+
+	- App\Model\Facades\Forum\Controls\NavigationFacade

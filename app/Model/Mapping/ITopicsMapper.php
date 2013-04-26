@@ -20,4 +20,10 @@ interface ITopicsMapper
 	 * @return \App\Model\DTO\TopicsList\Topic[]
 	 */
 	public function mapTopicsList($data);
+
+	/**
+	 * @param  mixed $data
+	 * @return array [name => 'name', forumId => 123]
+	 */
+	public function mapNameAndForumId($topic);
 }

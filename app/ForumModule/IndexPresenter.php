@@ -2,7 +2,6 @@
 
 namespace App\ForumModule;
 
-use Nette\Application\UI\Presenter;
 use App\Model\CategoriesRepository;
 
 final class IndexPresenter extends Presenter

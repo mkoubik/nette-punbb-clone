@@ -1,0 +1,3 @@
+factories:
+	navigation:
+		implement: App\ForumModule\Controls\INavigationFactory

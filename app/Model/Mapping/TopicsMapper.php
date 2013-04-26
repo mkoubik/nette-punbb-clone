@@ -26,4 +26,13 @@ class TopicsMapper implements ITopicsMapper
 			);
 		}, $topics);
 	}
+
+	/** @inheritDoc */
+	public function mapNameAndForumId($topic)
+	{
+		return array(
+			'name' => $topic[self::ROW_TOPICS_NAME],
+			'forumId' => $topic[self::ROW_TOPICS_FORUM_ID],
+		);
+	}
 }

@@ -2,7 +2,6 @@
 
 namespace App\ForumModule;
 
-use Nette\Application\UI\Presenter;
 use App\Model\PostsRepository;
 
 final class TopicPresenter extends Presenter
@@ -17,10 +16,11 @@ final class TopicPresenter extends Presenter
 		$this->posts = $posts;
 	}
 
-	// TODO: check if the topic exists
 	public function startup()
 	{
 		parent::startup();
+		// TODO: check if the topic exists
+		$this['navigation']->setTopicId($this->id);
 	}
 
 	public function renderDefault($page = 1)

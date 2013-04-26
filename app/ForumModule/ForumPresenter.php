@@ -2,7 +2,6 @@
 
 namespace App\ForumModule;
 
-use Nette\Application\UI\Presenter;
 use App\Model\TopicsRepository;
 
 final class ForumPresenter extends Presenter
@@ -18,5 +17,6 @@ final class ForumPresenter extends Presenter
 	public function renderDefault($id)
 	{
 		$this->template->topics = $this->topics->getByForumId($id);
+		$this['navigation']->setForumId($id);
 	}
 }

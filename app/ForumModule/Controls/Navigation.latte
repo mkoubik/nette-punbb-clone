@@ -1,0 +1,9 @@
+<ul class="breadcrumb">
+	<li><a n:tag-if="$location->forumId" href="{plink :Forum:Index:}">{$location->boardTitle}</a></li>
+	{if $location->forumId}
+		<li><span class="divider">&raquo;</span> <a n:tag-if="$location->topicName" href="{plink :Forum:Forum: id => $location->forumId}">{$location->forumName}</a></li>
+		{if $location->topicName}
+			<li><span class="divider">&raquo;</span> {$location->topicName}</li>
+		{/if}
+	{/if}
+</ul>
