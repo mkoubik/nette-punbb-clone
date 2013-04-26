@@ -10,28 +10,29 @@ class CategoriesMapper implements ICategoriesMapper
 	/** @inheritDoc */
 	public function mapCategoriesList($categories)
 	{
-		return array_map(function($row) {
-			$forums = $row->related(self::TABLE_FORUMS, self::ROW_FORUMS_CATEGORY_ID)
-				->order(self::ROW_FORUMS_POSITION);
-			$forums = array_map(function ($row) {
+		$mapper = $this;
+		return array_map(function($row) use ($mapper) {
+			$forums = $row->related($mapper::TABLE_FORUMS, $mapper::ROW_FORUMS_CATEGORY_ID)
+				->order($mapper::ROW_FORUMS_POSITION);
+			$forums = array_map(function ($row) use ($mapper) {
 				$lastPost = NULL;
-				if ($row[self::ROW_FORUMS_LAST_POST_ID] !== NULL) {
+				if ($row[$mapper::ROW_FORUMS_LAST_POST_ID] !== NULL) {
 					$lastPost = new DTO\LastPost(
-						$row[self::ROW_FORUMS_LAST_POST_ID],
+						$row[$mapper::ROW_FORUMS_LAST_POST_ID],
 						new \DateTime('@' . $row->last_post),
-						$row[self::ROW_FORUMS_LAST_POST_AUTHOR]
+						$row[$mapper::ROW_FORUMS_LAST_POST_AUTHOR]
 					);
 				}
 				return new ListDTO\Forum(
-					$row[self::ROW_FORUMS_ID],
-					$row[self::ROW_FORUMS_NAME],
-					$row[self::ROW_FORUMS_DESCRIPTION],
-					$row[self::ROW_FORUMS_TOPICS_COUNT],
-					$row[self::ROW_FORUMS_POSTS_COUNT],
+					$row[$mapper::ROW_FORUMS_ID],
+					$row[$mapper::ROW_FORUMS_NAME],
+					$row[$mapper::ROW_FORUMS_DESCRIPTION],
+					$row[$mapper::ROW_FORUMS_TOPICS_COUNT],
+					$row[$mapper::ROW_FORUMS_POSTS_COUNT],
 					$lastPost
 				);
 			}, iterator_to_array($forums));
-			return new ListDTO\Category($row[self::ROW_CATEGORIES_NAME], $forums);
+			return new ListDTO\Category($row[$mapper::ROW_CATEGORIES_NAME], $forums);
 		}, $categories);
 	}
 }

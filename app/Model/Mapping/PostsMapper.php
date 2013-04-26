@@ -11,30 +11,31 @@ class PostsMapper implements IPostsMapper
 	/** @inheritDoc */
 	public function mapPostsList($posts, $number)
 	{
-		return array_map(function ($row) use (&$number) {
-			$author = $row->ref(self::TABLE_USERS, self::ROW_POSTS_AUTHOR_ID);
-			$online = $author->related(self::TABLE_ONLINE, self::ROW_ONLINE_USER_ID)->count('user_id') > 0;
+		$mapper = $this;
+		return array_map(function ($row) use ($mapper, &$number) {
+			$author = $row->ref($mapper::TABLE_USERS, $mapper::ROW_POSTS_AUTHOR_ID);
+			$online = $author->related($mapper::TABLE_ONLINE, $mapper::ROW_ONLINE_USER_ID)->count('user_id') > 0;
 			$author = new ListDTO\Author(
-				$row[self::ROW_POSTS_AUTHOR_ID],
-				$row[self::ROW_POSTS_AUTHOR_NAME],
-				$this->getTitle($author),
+				$row[$mapper::ROW_POSTS_AUTHOR_ID],
+				$row[$mapper::ROW_POSTS_AUTHOR_NAME],
+				$mapper->getTitle($author),
 				$online,
-				new \DateTime('@' . $author[self::ROW_USERS_REGISTERD]),
-				$author[self::ROW_USERS_POSTS_COUNT]
+				new \DateTime('@' . $author[$mapper::ROW_USERS_REGISTERD]),
+				$author[$mapper::ROW_USERS_POSTS_COUNT]
 			);
 
 			$edited = NULL;
 			$editedBy = NULL;
-			if ($row[self::ROW_POSTS_EDITED]) {
-				$edited = new \DateTime('@' . $row[self::ROW_POSTS_EDITED]);
-				$editedBy = $row[self::ROW_POSTS_EDITED_BY];
+			if ($row[$mapper::ROW_POSTS_EDITED]) {
+				$edited = new \DateTime('@' . $row[$mapper::ROW_POSTS_EDITED]);
+				$editedBy = $row[$mapper::ROW_POSTS_EDITED_BY];
 			}
 
 			$post = new ListDTO\Post(
-				$row[self::ROW_POSTS_ID],
+				$row[$mapper::ROW_POSTS_ID],
 				$number,
-				$row[self::ROW_POSTS_MESSAGE],
-				new \DateTime('@' . $row[self::ROW_POSTS_POSTED]),
+				$row[$mapper::ROW_POSTS_MESSAGE],
+				new \DateTime('@' . $row[$mapper::ROW_POSTS_POSTED]),
 				$author,
 				$edited,
 				$editedBy
@@ -44,7 +45,7 @@ class PostsMapper implements IPostsMapper
 		}, $posts);
 	}
 
-	private function getTitle($user)
+	public function getTitle($user)
 	{
 		if ($user[self::ROW_USERS_TITLE]) {
 			return $user[self::ROW_USERS_TITLE];

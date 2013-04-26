@@ -10,18 +10,19 @@ class TopicsMapper implements ITopicsMapper
 	/** @inheritDoc */
 	public function mapTopicsList($topics)
 	{
-		return array_map(function ($row) {
+		$mapper = $this;
+		return array_map(function ($row) use ($mapper) {
 			$lastPost = new DTO\LastPost(
-				$row[self::ROW_TOPICS_LAST_POST_ID],
-				new \DateTime('@' . $row[self::ROW_TOPICS_LAST_POST_POSTED]),
-				$row[self::ROW_TOPICS_LAST_POST_AUTHOR]				
+				$row[$mapper::ROW_TOPICS_LAST_POST_ID],
+				new \DateTime('@' . $row[$mapper::ROW_TOPICS_LAST_POST_POSTED]),
+				$row[$mapper::ROW_TOPICS_LAST_POST_AUTHOR]
 			);
 			return new ListDTO\Topic(
-				$row[self::ROW_TOPICS_ID],
-				$row[self::ROW_TOPICS_NAME],
-				$row[self::ROW_TOPICS_AUTHOR],
-				$row[self::ROW_TOPICS_REPLIES_COUNT],
-				$row[self::ROW_TOPICS_VIEWS_COUNT],
+				$row[$mapper::ROW_TOPICS_ID],
+				$row[$mapper::ROW_TOPICS_NAME],
+				$row[$mapper::ROW_TOPICS_AUTHOR],
+				$row[$mapper::ROW_TOPICS_REPLIES_COUNT],
+				$row[$mapper::ROW_TOPICS_VIEWS_COUNT],
 				$lastPost
 			);
 		}, $topics);
