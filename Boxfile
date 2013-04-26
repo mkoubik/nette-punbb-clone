@@ -4,7 +4,7 @@ global:
 
 web1:
     name: nette-punbb-clone
-    shared_writeable_dirs: [ temp, log ]
+    shared_writable_dirs: [ temp, log ]
     document_root: www
     php_extensions:
         - pdo_mysql
