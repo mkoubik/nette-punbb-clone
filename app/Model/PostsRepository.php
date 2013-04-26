@@ -22,18 +22,22 @@ class PostsRepository
 	 * @param  int $id topic id
 	 * @param  int $page page number
 	 * @return \App\Model\DTO\PostsList\PostsPage
+	 * @throws \App\Model\Exceptions\NotFoundException If topic or page does not exist
 	 */
 	public function getPageByTopicId($id, $page)
 	{
 		$mapper = $this->mapper;
 		$total = $this->prepareByTopicId($id)->count('*');
 		if ($total == 0) {
-			// TODO exception
+			throw new \App\Model\Exceptions\NotFoundException();
 		}
 		$paginator = new Paginator();
 		$paginator->itemsPerPage = self::POSTS_PER_PAGE;
 		$paginator->itemCount = $total;
 		$paginator->page = $page;
+		if ($paginator->page !== $page) {
+			throw new \App\Model\Exceptions\NotFoundException();
+		}
 		$postsData = $this->prepareByTopicId($id)
 			->limit($paginator->itemsPerPage, $paginator->offset)
 			->fetchAll();

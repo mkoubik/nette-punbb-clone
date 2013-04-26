@@ -25,10 +25,10 @@ final class TopicPresenter extends Presenter
 
 	public function renderDefault($page = 1)
 	{
-		$postsPage = $this->posts->getPageByTopicId($this->id, $page);
-		if ($postsPage->paginator->page !== $page) {
+		try {
+			$this->template->page = $this->posts->getPageByTopicId($this->id, $page);
+		} catch (\App\Model\Exceptions\NotFoundException $e) {
 			throw new \Nette\Application\BadRequestException();
 		}
-		$this->template->page = $postsPage;
 	}
 }
