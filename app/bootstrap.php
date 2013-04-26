@@ -27,6 +27,9 @@ $configurator->createRobotLoader()
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon', FALSE);
 $configurator->addConfig(__DIR__ . '/config/config.local.neon', FALSE);
+if ($_SERVER['APP_NAME'] === 'nette-punbb-clone') {
+	$configurator->addConfig(__DIR__ . '/config/pagodabox.php', FALSE);
+}
 $container = $configurator->createContainer();
 
 return $container;

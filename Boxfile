@@ -1,0 +1,18 @@
+global:
+    env:
+        APP_NAME: nette-punbb-clone
+
+web1:
+    name: nette-punbb-clone
+    shared_writeable_dirs: [ temp, log ]
+    document_root: www
+    php_extensions:
+        - pdo_mysql
+        - intl
+        - tokenizer
+    after_deploy:
+        - "rm -rf temp/cache"
+
+db1:
+    name: punbb
+    type: mysql
