@@ -29,7 +29,7 @@ $configurator->addConfig(__DIR__ . '/config/config.neon', FALSE);
 if (file_exists(__DIR__ . '/config/config.local.neon')) {
 	$configurator->addConfig(__DIR__ . '/config/config.local.neon', FALSE);
 }
-if ($_SERVER['APP_NAME'] === 'nette-punbb-clone') {
+if (isset($_SERVER['DB!_HOST'])) {
 	$configurator->addConfig(__DIR__ . '/config/pagodabox.php', FALSE);
 }
 $container = $configurator->createContainer();
