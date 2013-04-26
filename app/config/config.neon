@@ -27,7 +27,11 @@ nette:
 		accessors: FALSE
 
 	database:
-		reflection: App\Model\DatabaseReflection
+		default:
+			dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
+			user: %database.user%
+			password: %database.password%
+			reflection: App\Model\DatabaseReflection
 
 
 services:

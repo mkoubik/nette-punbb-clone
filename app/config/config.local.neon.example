@@ -1,12 +1,10 @@
 parameters:
-
-nette:
 	database:
-		dsn: 'mysql:host=localhost;dbname=test'
+		driver: mysql
+		host: localhost
+		dbname: test
 		user:
 		password:
-		options:
-			lazy: yes
 
 services:
 

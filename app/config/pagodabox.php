@@ -1,6 +1,6 @@
 <?php
 return array(
-	'nette' => array(
+	'parameters' => array(
 		'database' => array(
 			'driver' => 'mysql',
 			'host' => $_SERVER['DB1_HOST'],
