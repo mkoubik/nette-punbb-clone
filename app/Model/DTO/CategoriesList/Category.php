@@ -8,6 +8,10 @@ class Category extends \Nette\Object
 
 	private $forums;
 
+	/**
+	 * @param string $name
+	 * @param \App\Model\DTO\CategoriesList\Forum[] $forums
+	 */
 	public function __construct($name, array $forums)
 	{
 		$this->name = $name;
@@ -24,7 +28,7 @@ class Category extends \Nette\Object
 		return $this->name;
 	}
 
-	/** @return Forum[] */
+	/** @return \App\Model\DTO\CategoriesList\Forum[] */
 	public function getForums()
 	{
 		return $this->forums;

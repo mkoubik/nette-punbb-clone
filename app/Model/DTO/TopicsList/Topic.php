@@ -18,6 +18,14 @@ class Topic extends \Nette\Object
 
 	private $lastPost = NULL;
 
+	/**
+	 * @param int $id
+	 * @param string $name
+	 * @param string $author author's name
+	 * @param int $repliesCount
+	 * @param int $viewsCount
+	 * @param \App\Model\DTO\LastPost $lastPost
+	 */
 	public function __construct($id, $name, $author, $repliesCount, $viewsCount, LastPost $lastPost = NULL)
 	{
 		$this->id = $id;
@@ -28,31 +36,37 @@ class Topic extends \Nette\Object
 		$this->lastPost = $lastPost;
 	}
 
+	/** @return int */
 	public function getId()
 	{
 		return $this->id;
 	}
 
+	/** @return string */
 	public function getName()
 	{
 		return $this->name;
 	}
 
+	/** @return sring */
 	public function getAuthor()
 	{
 		return $this->author;
 	}
 
+	/** @return int */
 	public function getRepliesCount()
 	{
 		return $this->repliesCount;
 	}
 
+	/** @return int */
 	public function getViewsCount()
 	{
 		return $this->viewsCount;
 	}
 
+	/** @return \App\Model\DTO\LastPost */
 	public function getLastPost()
 	{
 		return $this->lastPost;

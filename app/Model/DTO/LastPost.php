@@ -10,6 +10,11 @@ class LastPost extends \Nette\Object
 
 	private $author;
 
+	/**
+	 * @param int $id
+	 * @param \DateTime $posted
+	 * @param string $author author's name
+	 */
 	public function __construct($id, \DateTime $posted, $author)
 	{
 		$this->id = $id;

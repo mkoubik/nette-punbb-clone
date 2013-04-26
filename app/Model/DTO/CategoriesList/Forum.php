@@ -18,6 +18,14 @@ class Forum extends \Nette\Object
 
 	private $lastPost = NULL;
 
+	/**
+	 * @param int $id
+	 * @param string $name
+	 * @param string $description
+	 * @param int $topicsCount
+	 * @param int $postsCount
+	 * @param \App\Model\DTO\LastPost $lastPost
+	 */
 	public function __construct($id, $name, $description, $topicsCount, $postsCount, LastPost $lastPost = NULL)
 	{
 		$this->id = $id;
@@ -58,7 +66,7 @@ class Forum extends \Nette\Object
 		return $this->postsCount;
 	}
 
-	/** @return LastPost|NULL */
+	/** @return \App\Model\DTO\LastPost|NULL */
 	public function getLastPost()
 	{
 		return $this->lastPost;
