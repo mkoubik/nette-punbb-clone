@@ -8,8 +8,12 @@ web1:
     document_root: www
     php_extensions:
         - pdo_mysql
+        - gd
+        - apc
+        - fileinfo
         - intl
         - tokenizer
+        - mbstring
     after_build:
         - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
     after_deploy:
