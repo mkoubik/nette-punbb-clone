@@ -10,6 +10,8 @@ web1:
         - pdo_mysql
         - intl
         - tokenizer
+    after_build:
+        - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
     after_deploy:
         - "rm -rf temp/cache"
 
