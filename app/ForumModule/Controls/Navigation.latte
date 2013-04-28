@@ -1,3 +1,6 @@
+{**
+ * @var \App\Model\DTO\Location $location
+ *}
 <ul class="breadcrumb">
 	<li><a n:tag-if="$location->forumId" href="{plink :Forum:Index:}">{$location->boardTitle}</a></li>
 	{if $location->forumId}

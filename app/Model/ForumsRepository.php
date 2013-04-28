@@ -10,6 +10,9 @@ class ForumsRepository
 
 	private $connection;
 
+	/**
+	 * @param \Nette\Database\Connection $connection
+	 */
 	public function __construct(\Nette\Database\Connection $connection)
 	{
 		$this->connection = $connection;

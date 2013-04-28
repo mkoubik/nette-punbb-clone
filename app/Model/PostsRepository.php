@@ -12,6 +12,11 @@ class PostsRepository
 
 	private $mapper;
 
+	/**
+	 * [__construct description]
+	 * @param \Nette\Database\Connection $connection
+	 * @param \App\Model\Mapping\IPostsMapper $mapper
+	 */
 	public function __construct(\Nette\Database\Connection $connection, Mapping\IPostsMapper $mapper)
 	{
 		$this->connection = $connection;

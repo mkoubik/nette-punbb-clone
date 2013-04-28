@@ -16,6 +16,9 @@ class ConfigRepository
 	// TODO: cache?
 	private $values = NULL;
 
+	/**
+	 * @param \Nette\Database\Connection $connection
+	 */
 	public function __construct(\Nette\Database\Connection $connection)
 	{
 		$this->connection = $connection;

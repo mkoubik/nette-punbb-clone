@@ -13,6 +13,9 @@ class Navigation extends Control
 
 	private $facade;
 
+	/**
+	 * @param \App\Model\Facades\Forum\Controls\NavigationFacade $facade
+	 */
 	public function __construct(NavigationFacade $facade)
 	{
 		parent::__construct();
