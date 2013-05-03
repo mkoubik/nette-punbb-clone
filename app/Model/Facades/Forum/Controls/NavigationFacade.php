@@ -16,7 +16,6 @@ class NavigationFacade
 	private $topicsRepository;
 
 	/**
-	 * [__construct description]
 	 * @param \App\Model\ConfigRepository $configRepository
 	 * @param \App\Model\ForumsRepository $forumsRepository
 	 * @param \App\Model\topicsRepository $topicsRepository
@@ -33,7 +32,6 @@ class NavigationFacade
 	}
 
 	/**
-	 * [getLocation description]
 	 * @param  int|NULL $forumId
 	 * @param  int|NULL $topicId
 	 * @return \App\Model\DTO\Location
