@@ -21,6 +21,7 @@
 		"nette/nette": "@dev"
 	},
     "require-dev": {
-        "nette/tester": "@dev"
+        "nette/tester": "@dev",
+        "janmarek/mockista": "~1.0.0"
     }
 }

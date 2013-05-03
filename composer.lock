@@ -1,5 +1,5 @@
 {
-    "hash": "0c575d893558a8f4d9007d4c4cad3432",
+    "hash": "441f8b20eb7dda18a5f07990d28a598a",
     "packages": [
         {
             "name": "nette/nette",
@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "bb0ba7ba91c82c8e20f54ecb9376639eef02291c"
+                "reference": "70cd9d414fe9f2f1b039730a9e4daf051daf1d5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/bb0ba7ba91c82c8e20f54ecb9376639eef02291c",
-                "reference": "bb0ba7ba91c82c8e20f54ecb9376639eef02291c",
+                "url": "https://api.github.com/repos/nette/nette/zipball/70cd9d414fe9f2f1b039730a9e4daf051daf1d5c",
+                "reference": "70cd9d414fe9f2f1b039730a9e4daf051daf1d5c",
                 "shasum": ""
             },
             "require": {
@@ -73,10 +73,61 @@
                 "neon",
                 "templating"
             ],
-            "time": "2013-04-25 12:37:35"
+            "time": "2013-05-02 11:54:37"
         }
     ],
     "packages-dev": [
+        {
+            "name": "janmarek/mockista",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/janmarek/mockista",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/janmarek/mockista/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mockista": ""
+                },
+                "files": [
+                    "Mockista/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jiří Knesl",
+                    "homepage": "http://www.knesl.com/"
+                },
+                {
+                    "name": "Jan Marek",
+                    "homepage": "http://www.janmarek.net/"
+                }
+            ],
+            "description": "Mockista is library for mocking, which I've written, because I find mocking in PHPUnit awful.",
+            "homepage": "http://www.mockista.com/",
+            "keywords": [
+                "BDD",
+                "TDD",
+                "mock",
+                "mocking",
+                "mockista",
+                "phpunit",
+                "testing",
+                "tests"
+            ],
+            "time": "2013-01-21 23:22:22"
+        },
         {
             "name": "nette/tester",
             "version": "dev-master",
