@@ -4,17 +4,17 @@ namespace App\Model;
 
 class TopicsRepository
 {
-	private $connection;
+	private $selectionFactory;
 
 	private $mapper;
 
 	/**
-	 * @param \Nette\Database\Connection $connection
+	 * @param \Nette\Database\SelectionFactory $connection
 	 * @param \App\Model\Mapping\ITopicsMapper $mapper
 	 */
-	public function __construct(\Nette\Database\Connection $connection, Mapping\ITopicsMapper $mapper)
+	public function __construct(\Nette\Database\SelectionFactory $selectionFactory, Mapping\ITopicsMapper $mapper)
 	{
-		$this->connection = $connection;
+		$this->selectionFactory = $selectionFactory;
 		$this->mapper = $mapper;
 	}
 
@@ -26,7 +26,7 @@ class TopicsRepository
 	public function getByForumId($id)
 	{
 		$mapper = $this->mapper;
-		$topics = $this->connection->table($mapper::TABLE_TOPICS)
+		$topics = $this->selectionFactory->table($mapper::TABLE_TOPICS)
 			->where($mapper::ROW_TOPICS_FORUM_ID, $id)
 			->order($mapper::ROW_TOPICS_LAST_POST_POSTED . ' DESC')
 			->fetchAll();
@@ -41,7 +41,7 @@ class TopicsRepository
 	public function getNameAndForumIdById($id)
 	{
 		$mapper = $this->mapper;
-		$row = $this->connection->table($mapper::TABLE_TOPICS)
+		$row = $this->selectionFactory->table($mapper::TABLE_TOPICS)
 			->where($mapper::ROW_TOPICS_ID, $id)
 			->select($mapper::ROW_TOPICS_NAME . ', ' . $mapper::ROW_TOPICS_FORUM_ID)
 			->fetch();

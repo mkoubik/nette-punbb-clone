@@ -4,17 +4,17 @@ namespace App\Model;
 
 class CategoriesRepository
 {
-	private $connection;
+	private $selectionFactory;
 
 	private $mapper;
 
 	/**
-	 * @param \Nette\Database\Connection $connection
+	 * @param \Nette\Database\SelectionFactory $selectionFactory
 	 * @param \App\Model\Mapping\ICategoriesMapper $mapper
 	 */
-	public function __construct(\Nette\Database\Connection $connection, Mapping\ICategoriesMapper $mapper)
+	public function __construct(\Nette\Database\SelectionFactory $selectionFactory, Mapping\ICategoriesMapper $mapper)
 	{
-		$this->connection = $connection;
+		$this->selectionFactory = $selectionFactory;
 		$this->mapper = $mapper;
 	}
 
@@ -25,7 +25,7 @@ class CategoriesRepository
 	public function getAll()
 	{
 		$mapper = $this->mapper;
-		$categories = $this->connection->table($mapper::TABLE_CATEGORIES)
+		$categories = $this->selectionFactory->table($mapper::TABLE_CATEGORIES)
 			->order($mapper::ROW_CATEGORIES_POSITION)
 			->fetchAll();
 		return $mapper->mapCategoriesList($categories);

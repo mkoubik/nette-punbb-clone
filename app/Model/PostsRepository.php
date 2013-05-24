@@ -8,18 +8,18 @@ class PostsRepository
 {
 	const POSTS_PER_PAGE = 25;
 
-	private $connection;
+	private $selectionFactory;
 
 	private $mapper;
 
 	/**
 	 * [__construct description]
-	 * @param \Nette\Database\Connection $connection
+	 * @param \Nette\Database\SelectionFactory $selectionFactory
 	 * @param \App\Model\Mapping\IPostsMapper $mapper
 	 */
-	public function __construct(\Nette\Database\Connection $connection, Mapping\IPostsMapper $mapper)
+	public function __construct(\Nette\Database\SelectionFactory $selectionFactory, Mapping\IPostsMapper $mapper)
 	{
-		$this->connection = $connection;
+		$this->selectionFactory = $selectionFactory;
 		$this->mapper = $mapper;
 	}
 
@@ -55,7 +55,7 @@ class PostsRepository
 	private function prepareByTopicId($id)
 	{
 		$mapper = $this->mapper;
-		return $this->connection->table($mapper::TABLE_POSTS)
+		return $this->selectionFactory->table($mapper::TABLE_POSTS)
 			->where($mapper::ROW_POSTS_TOPIC_ID, $id)
 			->order($mapper::ROW_POSTS_POSTED);
 	}

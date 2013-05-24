@@ -10,18 +10,18 @@ class ConfigRepository
 
 	const CONFIG_BOARD_TITLE = 'o_board_title';
 
-	private $connection;
+	private $selectionFactory;
 
 	// TODO: reset on ConfigUpdated event?
 	// TODO: cache?
 	private $values = NULL;
 
 	/**
-	 * @param \Nette\Database\Connection $connection
+	 * @param \Nette\Database\SelectionFactory $selectionFactory
 	 */
-	public function __construct(\Nette\Database\Connection $connection)
+	public function __construct(\Nette\Database\SelectionFactory $selectionFactory)
 	{
-		$this->connection = $connection;
+		$this->selectionFactory = $selectionFactory;
 	}
 
 	/**
@@ -32,7 +32,7 @@ class ConfigRepository
 	public function getValue($name)
 	{
 		if ($this->values === NULL) {
-			$this->values = $this->connection->table(self::TABLE_CONFIG)
+			$this->values = $this->selectionFactory->table(self::TABLE_CONFIG)
 				->fetchPairs(self::ROW_CONFIG_NAME, self::ROW_CONFIG_VALUE);
 		}
 		if (!isset($this->values[$name])) {

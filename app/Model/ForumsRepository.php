@@ -8,14 +8,14 @@ class ForumsRepository
 	const ROW_FORUMS_ID = 'id';
 	const ROW_FORUMS_NAME = 'forum_name';
 
-	private $connection;
+	private $selectionFactory;
 
 	/**
-	 * @param \Nette\Database\Connection $connection
+	 * @param \Nette\Database\SelectionFactory $selectionFactory
 	 */
-	public function __construct(\Nette\Database\Connection $connection)
+	public function __construct(\Nette\Database\SelectionFactory $selectionFactory)
 	{
-		$this->connection = $connection;
+		$this->selectionFactory = $selectionFactory;
 	}
 
 	/**
@@ -25,7 +25,7 @@ class ForumsRepository
 	 */
 	public function getNameById($id)
 	{
-		$row = $this->connection->table(self::TABLE_FORUMS)
+		$row = $this->selectionFactory->table(self::TABLE_FORUMS)
 			->where(self::ROW_FORUMS_ID, $id)
 			->select(self::ROW_FORUMS_NAME)
 			->fetch();
