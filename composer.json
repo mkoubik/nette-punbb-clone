@@ -17,6 +17,9 @@
 		"vendor-dir": "vendor",
 		"bin-dir": "bin"
 	},
+	"autoload": {
+		"psr-0": {"App": ""}
+	},
 	"require": {
 		"php": ">= 5.3.0",
 		"nette/nette": "@dev"
