@@ -14,7 +14,8 @@
 		}
 	],
 	"config": {
-		"vendor-dir": "libs"
+		"vendor-dir": "vendor",
+		"bin-dir": "bin"
 	},
 	"require": {
 		"php": ">= 5.3.0",
@@ -22,6 +23,7 @@
 	},
     "require-dev": {
         "nette/tester": "@dev",
-        "janmarek/mockista": "~1.0.0"
+        "janmarek/mockista": "~1.0.0",
+        "phpspec/phpspec": "2.0.*@dev"
     }
 }
