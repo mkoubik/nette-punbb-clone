@@ -7,4 +7,4 @@ tests/tmp/*
 !.gitignore
 !.htaccess
 !web.config
-app/config/config.local.neon
+App/config/config.local.neon
