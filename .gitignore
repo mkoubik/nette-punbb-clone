@@ -1,6 +1,6 @@
 log/*
 temp/*
-libs/*
+vendor/*
 tests/tmp/*
 
 .DS_Store
