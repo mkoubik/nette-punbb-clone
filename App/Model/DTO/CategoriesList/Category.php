@@ -2,6 +2,10 @@
 
 namespace App\Model\DTO\CategoriesList;
 
+/**
+ * @method string getName()
+ * @method \App\Model\DTO\CategoriesList\Forum[] getForums()
+ */
 class Category extends \Nette\Object
 {
 	private $name;
@@ -20,17 +24,5 @@ class Category extends \Nette\Object
 		$this->forums = array_filter($forums, function ($forum) {
 			return $forum instanceof Forum;
 		});
-	}
-
-	/** @return string */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-	/** @return \App\Model\DTO\CategoriesList\Forum[] */
-	public function getForums()
-	{
-		return $this->forums;
 	}
 }

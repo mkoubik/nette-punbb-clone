@@ -4,6 +4,14 @@ namespace App\Model\DTO\TopicsList;
 
 use App\Model\DTO\LastPost;
 
+/**
+ * @method int getId()
+ * @method string getName()
+ * @method string getAuthor()
+ * @method int getRepliesCount()
+ * @method int getViewsCount()
+ * @method \App\Model\DTO\LastPost getLastPost()
+ */
 class Topic extends \Nette\Object
 {
 	private $id;
@@ -34,41 +42,5 @@ class Topic extends \Nette\Object
 		$this->repliesCount = $repliesCount;
 		$this->viewsCount = $viewsCount;
 		$this->lastPost = $lastPost;
-	}
-
-	/** @return int */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-	/** @return string */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-	/** @return sring */
-	public function getAuthor()
-	{
-		return $this->author;
-	}
-
-	/** @return int */
-	public function getRepliesCount()
-	{
-		return $this->repliesCount;
-	}
-
-	/** @return int */
-	public function getViewsCount()
-	{
-		return $this->viewsCount;
-	}
-
-	/** @return \App\Model\DTO\LastPost */
-	public function getLastPost()
-	{
-		return $this->lastPost;
 	}
 }

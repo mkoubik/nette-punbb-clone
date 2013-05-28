@@ -4,6 +4,14 @@ namespace App\Model\DTO\CategoriesList;
 
 use App\Model\DTO\LastPost;
 
+/**
+ * @method int getId()
+ * @method string getName()
+ * @method string getDescription()
+ * @method int getTopicsCount()
+ * @method int getPostsCount()
+ * @method \App\Model\DTO\LastPost getLastPost()
+ */
 class Forum extends \Nette\Object
 {
 	private $id;
@@ -34,41 +42,5 @@ class Forum extends \Nette\Object
 		$this->topicsCount = $topicsCount;
 		$this->postsCount = $postsCount;
 		$this->lastPost = $lastPost;
-	}
-
-	/** @return int */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-	/** @return string */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-	/** @return string */
-	public function getDescription()
-	{
-		return $this->description;
-	}
-
-	/** @return int */
-	public function getTopicsCount()
-	{
-		return $this->topicsCount;
-	}
-
-	/** @return int */
-	public function getPostsCount()
-	{
-		return $this->postsCount;
-	}
-
-	/** @return \App\Model\DTO\LastPost|NULL */
-	public function getLastPost()
-	{
-		return $this->lastPost;
 	}
 }

@@ -4,6 +4,14 @@ namespace App\Model\DTO\PostsList;
 
 use Nette\Utils\Paginator;
 
+/**
+ * @method int getNumber()
+ * @method int getFrom()
+ * @method int getTo()
+ * @method int getTotal()
+ * @method \App\Model\DTO\PostsList\Post[] getPosts()
+ * @method \Nette\Utils\Paginator getPaginator()
+ */
 class PostsPage extends \Nette\Object
 {
 	private $number;
@@ -36,41 +44,5 @@ class PostsPage extends \Nette\Object
 			return $post instanceof Post;
 		});
 		$this->paginator = $paginator;
-	}
-
-	/** @return int */
-	public function getNumber()
-	{
-		return $this->number;
-	}
-
-	/** @return int */
-	public function getFrom()
-	{
-		return $this->from;
-	}
-
-	/** @return int */
-	public function getTo()
-	{
-		return $this->to;
-	}
-
-	/** @return int */
-	public function getTotal()
-	{
-		return $this->total;
-	}
-
-	/** @return \App\Model\DTO\PostsList\Post[] */
-	public function getPosts()
-	{
-		return $this->posts;
-	}
-
-	/** @return \Nette\Utils\Paginator */
-	public function getPaginator()
-	{
-		return $this->paginator;
 	}
 }

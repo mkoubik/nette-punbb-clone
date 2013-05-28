@@ -2,6 +2,15 @@
 
 namespace App\Model\DTO\PostsList;
 
+/**
+ * @method int getId()
+ * @method int getNumber()
+ * @method string getMessage()
+ * @method \DateTime getPosted()
+ * @method \App\Model\DTO\PostsList\Author getAuthor()
+ * @method \DateTime getEdited()
+ * @method string getEditedBy()
+ */
 class Post extends \Nette\Object
 {
 	private $id;
@@ -36,47 +45,5 @@ class Post extends \Nette\Object
 		$this->author = $author;
 		$this->edited = $edited;
 		$this->editedBy = $editedBy;
-	}
-
-	/** @return int */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-	/** @return int */
-	public function getNumber()
-	{
-		return $this->number;
-	}
-
-	/** @return string */
-	public function getMessage()
-	{
-		return $this->message;
-	}
-
-	/** @return \DateTime */
-	public function getPosted()
-	{
-		return $this->posted;
-	}
-
-	/** @return string */
-	public function getAuthor()
-	{
-		return $this->author;
-	}
-
-	/** @return \DateTime */
-	public function getEdited()
-	{
-		return $this->edited;
-	}
-
-	/** @return string */
-	public function getEditedBy()
-	{
-		return $this->editedBy;
 	}
 }

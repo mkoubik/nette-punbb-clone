@@ -2,6 +2,12 @@
 
 namespace App\Model\DTO;
 
+/**
+ * @method string getBoardTitle()
+ * @method int|NULL getForumId()
+ * @method string|NULL getForumName()
+ * @method string|NULL getTopicName()
+ */
 class Location extends \Nette\Object
 {
 	private $boardTitle;
@@ -24,29 +30,5 @@ class Location extends \Nette\Object
 		$this->forumId = $forumId;
 		$this->forumName = $forumName;
 		$this->topicName = $topicName;
-	}
-
-	/** @return string */
-	public function getBoardTitle()
-	{
-		return $this->boardTitle;
-	}
-
-	/** @return int|NULL */
-	public function getForumId()
-	{
-		return $this->forumId;
-	}
-
-	/** @return string|NULL */
-	public function getForumName()
-	{
-		return $this->forumName;
-	}
-
-	/** @return string|NULL */
-	public function getTopicName()
-	{
-		return $this->topicName;
 	}
 }

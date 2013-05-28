@@ -2,6 +2,14 @@
 
 namespace App\Model\DTO\PostsList;
 
+/**
+ * @method int getId()
+ * @method string getName()
+ * @method string getTitle()
+ * @method bool getOnline()
+ * @method \DateTime getRegistered()
+ * @method int getPostsCount()
+ */
 class Author extends \Nette\Object
 {
 	private $id;
@@ -32,41 +40,5 @@ class Author extends \Nette\Object
 		$this->online = $online;
 		$this->registered = $registered;
 		$this->postsCount = $postsCount;
-	}
-
-	/** @return int */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-	/** @return string */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-	/** @return string */
-	public function getTitle()
-	{
-		return $this->title;
-	}
-
-	/** @return bool */
-	public function isOnline()
-	{
-		return $this->online;
-	}
-
-	/** @return \DateTime */
-	public function getRegistered()
-	{
-		return $this->registered;
-	}
-
-	/** @return int */
-	public function getPostsCount()
-	{
-		return $this->postsCount;
 	}
 }

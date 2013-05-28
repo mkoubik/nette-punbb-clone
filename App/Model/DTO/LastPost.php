@@ -2,6 +2,11 @@
 
 namespace App\Model\DTO;
 
+/**
+ * @method int getId()
+ * @method \DateTime getPosted()
+ * @method string getAuthor()
+ */
 class LastPost extends \Nette\Object
 {
 	private $id;
@@ -20,23 +25,5 @@ class LastPost extends \Nette\Object
 		$this->id = $id;
 		$this->posted = $posted;
 		$this->author = $author;
-	}
-
-	/** @return int */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-	/** @return \DateTime */
-	public function getPosted()
-	{
-		return $this->posted;
-	}
-
-	/** @return string */
-	public function getAuthor()
-	{
-		return $this->author;
 	}
 }
